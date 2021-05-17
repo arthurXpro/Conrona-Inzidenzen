@@ -1,15 +1,7 @@
+#!/usr/bin/python3
 import os
 
 import requests
-import openpyxl
-from pathlib import Path
-
-# Bar Chart
-import matplotlib.pyplot as plt; plt.rcdefaults()
-import numpy as np
-import matplotlib.pyplot as plt
-
-from urllib3.connectionpool import xrange
 
 ###################################
 ## Datei holen und herunterladen ##
@@ -18,13 +10,11 @@ from urllib3.connectionpool import xrange
 url = 'https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Daten/Fallzahlen_Kum_Tab.xlsx?__blob=publicationFile'
 r = requests.get(url, allow_redirects=True)
 
+
 with open('Fallzahlen_Kum_Tab.xlsx', 'wb') as f:
+    os.chmod("Fallzahlen_Kum_Tab.xlsx", 436)
     f.write(r.content)
-
-
-
-
-
+    f.close()
 
 ###########################################################
 ## Das Lesen von Excel-Dateie wird mit PHP programmiert  ##
